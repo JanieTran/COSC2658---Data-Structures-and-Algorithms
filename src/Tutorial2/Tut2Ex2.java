@@ -1,6 +1,6 @@
 package Tutorial2;
 
-public class Tut1Ex2 {
+public class Tut2Ex2 {
     public static void main(String[] args) {
         char c = 'a';
         int i = (int) c;
