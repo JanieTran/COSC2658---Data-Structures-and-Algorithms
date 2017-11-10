@@ -1,3 +1,5 @@
+// Design class Person
+
 package Tutorial2;
 
 public class Tut2Ex10 {
@@ -6,7 +8,7 @@ public class Tut2Ex10 {
     }
 
     public class Student extends Person {
-        String classStatus;
+
     }
 
     public class Employee extends Person {
@@ -15,10 +17,15 @@ public class Tut2Ex10 {
     }
 
     public class Faculty extends Employee {
-
+        float officeHours;
+        String rank;
     }
 
     public class Staff extends Employee {
+        String title;
+    }
 
+    public class MyDate {
+        int year, month, day;
     }
 }

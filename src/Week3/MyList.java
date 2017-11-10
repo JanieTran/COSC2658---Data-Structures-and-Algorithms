@@ -20,9 +20,20 @@ public class MyList {
     public void printList() {
         Node currentNode = head;
         while (currentNode != null) {
-            System.out.println(currentNode.data);
+            System.out.print(currentNode.data + " ");
             currentNode = currentNode.next; //traverse the list
         }
+    }
+
+    public void remove(int i) {  // assume i >= 0
+        if (i == 0) {
+            head = head.next;
+        } else if (i > 0) {
+            Node prev = getNode(i - 1);
+            Node cur = prev.next;
+            prev.next = cur.next;
+        }
+        length--;
     }
 
     public Node getNode(int i) {
