@@ -13,6 +13,7 @@ public class MyList {
 
     public void appendNode(Node aNode) { //append a node
         tail.next = aNode;			//into the list
+        aNode.prev = tail;
         tail = tail.next;
         length += 1;		 //keep track of size
     }
@@ -25,14 +26,20 @@ public class MyList {
         }
     }
 
+    public void insert(int i, int data) {
+        Node u = new Node(data);
+        Node w = getNode(i);
+        u.prev = w.prev;
+        u.next = w;
+        u.next.prev = u;
+        u.prev.next = u;
+        length ++;
+    }
+
     public void remove(int i) {  // assume i >= 0
-        if (i == 0) {
-            head = head.next;
-        } else if (i > 0) {
-            Node prev = getNode(i - 1);
-            Node cur = prev.next;
-            prev.next = cur.next;
-        }
+        Node w = getNode(i);
+        w.prev.next = w.next;
+        w.next.prev = w.prev;
         length--;
     }
 

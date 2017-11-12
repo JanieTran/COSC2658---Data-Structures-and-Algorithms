@@ -1,6 +1,6 @@
 package Week4;
 
-public class Lab4Ex2 {
+public class Tut4Ex2 {
     public static void main(String[] args) {
         System.out.println(sum_int(-5));
     }
