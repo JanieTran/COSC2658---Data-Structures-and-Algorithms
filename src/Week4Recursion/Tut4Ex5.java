@@ -1,4 +1,4 @@
-package Week4;
+package Week4Recursion;
 
 public class Tut4Ex5 {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 // Rewrite Fibonacci example using dynamic programming but keep the recursive form.
 
-package Week4;
+package Week4Recursion;
 
 public class Tut4Ex6 {
     public static void main(String[] args) {

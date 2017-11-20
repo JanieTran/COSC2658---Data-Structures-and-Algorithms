@@ -1,6 +1,6 @@
 // Write a recursive mathematical definition for computing 2n for a positive integer n.
 
-package Week4;
+package Week4Recursion;
 
 public class Tut4Ex4 {
     public static void main(String[] args) {

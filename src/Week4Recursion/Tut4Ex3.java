@@ -1,6 +1,6 @@
 // Compute (manually) gcd(1995, 1492)
 
-package Week4;
+package Week4Recursion;
 
 public class Tut4Ex3 {
     public static void main(String[] args) {
