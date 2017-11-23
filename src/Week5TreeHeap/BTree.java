@@ -96,7 +96,7 @@ public class BTree {
 
     private void preorder(BTNode node) {
         if (node != null) {
-            System.out.print(node.data);
+            System.out.print(node.data + " ");
             preorder(node.left);
             preorder(node.right);
         }
@@ -112,7 +112,7 @@ public class BTree {
     private void inorder(BTNode node) {
         if (node != null) {
             inorder(node.left);
-            System.out.print(node.data);
+            System.out.print(node.data + " ");
             inorder(node.right);
         }
     }
@@ -128,22 +128,23 @@ public class BTree {
         if (node != null) {
             postorder(node.left);
             postorder(node.right);
-            System.out.print(node.data);
+            System.out.print(node.data + " ");
         }
     }
 
     // Breadth-first
     public void traverseBreadthfirst() {
-        System.out.println("Breadth-first traversal: ");
+        System.out.print("Breadth-first traversal: ");
         Queue<BTNode> q = new LinkedList<>();
 
         if (root != null) q.add(root);
 
         while (!q.isEmpty()) {
             BTNode node = q.remove();
-            System.out.println(node.data);
+            System.out.print(node.data + " ");
             if (node.left != null) q.add(node.left);
             if (node.right != null) q.add(node.right);
         }
+        System.out.println();
     }
 }

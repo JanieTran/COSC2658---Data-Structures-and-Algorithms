@@ -6,25 +6,23 @@ import java.util.Queue;
 public class Tut5Ex6 {
     public static void main(String[] args) {
         BTree tree = new BTree();
-        tree.insert(2);
-        tree.insert(3);
-        tree.insert(6);
-        tree.insert(24);
-        tree.insert(12);
-        tree.insert(7);
-        tree.insert(20);
-        tree.insert(18);
-        tree.insert(16);
-        tree.insert(11);
-        tree.insert(8);
+        int[] values = {10,12,1,14,6,5,8,15,3,9};
+        boolean insertSuccess;
 
-        treeDetails(tree);
+        for (int i = 0; i < values.length; i++) {
+            insertSuccess = tree.insert(values[i]);
+        }
+
+        System.out.println("Even value: " + evenValue(tree));
+        System.out.println("Sum: " + treeSum(tree));
+        System.out.println("Longest increasing sequence including root: " + lenRootIncreasingSeq(tree));
+        System.out.println("Longest increasing sequence excluding root: " + lenIncreasingSeq(tree.root));
     }
 
-    public static void treeDetails(BTree tree) {
+    // Count event values
+    public static int evenValue(BTree tree) {
         Queue<BTNode> q = new LinkedList<>();
         int countEven = 0;
-        int sum = 0;
 
         if (tree.root != null) q.add(tree.root);
 
@@ -34,6 +32,23 @@ public class Tut5Ex6 {
             // Count number of even values
             if (node.data % 2 == 0) countEven ++;
 
+            if (node.left != null) q.add(node.left);
+            if (node.right != null) q.add(node.right);
+        }
+
+        return countEven;
+    }
+
+    // Sum of all nodes
+    public static int treeSum(BTree tree) {
+        Queue<BTNode> q = new LinkedList<>();
+        int sum = 0;
+
+        if (tree.root != null) q.add(tree.root);
+
+        while (!q.isEmpty()) {
+            BTNode node = q.remove();
+
             // Sum of all values
             sum += node.data;
 
@@ -41,7 +56,30 @@ public class Tut5Ex6 {
             if (node.right != null) q.add(node.right);
         }
 
-        System.out.println("Even value: " + countEven);
-        System.out.println("Sum: " + sum);
+        return sum;
+    }
+
+    // Length of longest increasing sequence excluding rort
+    public static int lenIncreasingSeq(BTNode root) {
+        if (root == null) return 0;
+        else {
+            int lenLeft = lenIncreasingSeq(root.left);
+            int lenRight = lenIncreasingSeq(root.right);
+            lenRight++;
+            return lenLeft > lenRight ? lenLeft : lenRight;
+        }
+    }
+
+    // Length of longest increasing sequence including root
+    public static int lenRootIncreasingSeq(BTree tree) {
+        BTNode node = tree.root;
+        int count = 0;
+
+        while (node != null) {
+            node = node.right;
+            count ++;
+        }
+
+        return count;
     }
 }
