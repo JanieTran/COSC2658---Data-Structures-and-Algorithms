@@ -9,7 +9,7 @@ public class Tut8Ex6 {
         System.out.println(oN2(arr, 10));
     }
 
-    public static boolean oN2(int[] arr, int target) {
+    private static boolean oN2(int[] arr, int target) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] == 0) {

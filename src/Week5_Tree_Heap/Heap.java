@@ -43,8 +43,6 @@ public class Heap {
 
     // Insert element
     public void enqueue(int x) {
-//        if (isFull())
-//            throw new NoSuchElementException("Overflow Exception");
         if (!isFull()) {
             size ++;
             heap[size - 1] = x;
